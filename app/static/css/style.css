@@ -1,0 +1,106 @@
+.bg {
+    min-height:100vh; 
+    background: linear-gradient(45deg, rgba(0,0,0,1), rgba(0,0,0,0.5)), url("https://images.unsplash.com/photo-1548048211-357ddb2c920f?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387");
+    background-size:cover;
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+}
+
+.mush_logo {
+    width: 2rem;
+}
+
+.big {
+    font-size: 3rem;
+}
+
+.small {
+    font-size  : 0.8rem;
+}
+
+.separator_up {
+    position:absolute;
+    image-orientation: flip;
+    transform:scaleX(-1) rotate(180deg);
+    /* transform:rotate(180deg); */
+    top:0px;
+    z-index : -1;
+}
+
+.separator_down {
+    transform:scaleX(-1);
+}
+
+.footer_text {
+   position:absolute;
+   width:100%;
+   top:50%;
+   z-index:1;
+}
+
+.bg_glass {
+    background-color: rgba(240, 255, 255, 0.2);
+}
+
+.light_grey {
+    background-color:black;
+}
+
+.a_item {
+    color:lightgray;
+    transition: color 0.5s;
+}
+.a_item:hover {
+    color:cyan;
+}
+
+.pastille{
+    width:5rem;
+    height:5rem;
+    pointer-events: none;
+}
+
+.min-h {
+    min-height:4rem;
+}
+
+#design {
+    width:100%;
+    height:70vh;
+    border : 1px dashed goldenrod;
+}
+
+.btn_create {
+text-decoration:none;
+}
+.btn_create:hover {
+    color:gold!important;
+}
+.wait {
+    height:30rem;
+    width:40rem;
+    background-color: rgba(15, 10, 19, 0.877);
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -60%);
+    position:fixed;
+    z-index: 10000;
+}
+
+.pop_up {
+    background: rgba(255, 255, 255, 0.95);
+    width:fit-content;
+    height:fit-content;
+    border-radius:1rem;
+    position:absolute;  
+    transform: translate(-50%, -50%);
+    z-index:0;
+
+}
+.min_w {
+    min-width: 8rem;
+}
+
+.border_dashed {
+    border-style: dashed!important;
+}
