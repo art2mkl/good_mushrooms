@@ -1,9 +1,9 @@
 # import and register blueprints
 from flask import Blueprint
 
-main = Blueprint('main', __name__, template_folder='templates' )
+admin = Blueprint('admin_bp', __name__)
 
 # import any flask extension specific to this module
 
-# import views
-from app.main import main_views
+# import admin_view
+from app.admin import admin_view
