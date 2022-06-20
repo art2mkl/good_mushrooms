@@ -67,7 +67,6 @@ class User(db.Model):
         if user :
             session['user'] = user.name
             session['id'] = user.id
-            session['role'] = user.role
 
     @staticmethod
     def exists(email):

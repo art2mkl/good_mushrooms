@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% from 'macros/form_field.html' import form_field %}
+
+{% block title %}LOGIN{% endblock %}
+{% block content_title %}<i class="bi bi-plug-fill"></i>LOGIN{% endblock %}
+
+{% block left_content %}
+<div>
+    <h3 class="text-info">CONNECT</h3>
+    <p>Acces to your Project Dashboard</p>
+
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<form action="{{ url_for('main.login') }}" class="bg_glass form form-horizontal p-4 rounded shadow" method="post">
+    
+    {{ form_field(form.email) }}
+    {{ form_field(form.password) }}  
+    
+    <div class="form-group">
+        <div>
+            <button type="submit" class="btn btn-primary">Log in</button>
+            <a class="btn btn-light" href="{{ url_for('main.home') }}">Cancel</a>
+        </div>
+    </div>
+
+    <div class="form-group text-end pt-3">
+        <a class="text-decoration-none text-warning" href="{{ url_for('main.register') }}">Sign in</a>
+    </div>
+    </form>
+
+{% endblock %}

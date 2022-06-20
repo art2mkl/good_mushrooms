@@ -1,0 +1,11 @@
+{% macro form_field(field) %}
+
+
+<div class="mb-3">
+    {{ field.label(class='form-label') }}
+    {{ field(class='form-control', **kwargs) }}
+    {% if field.description %}<i>{{ field.description | safe }}</i>{% endif %}
+</div>
+
+
+{% endmacro %}

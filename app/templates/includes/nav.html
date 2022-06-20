@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ url_for('main.index') }}"><img src="{{ url_for('static', filename='images/mushroom.svg') }}" class="mush_logo">&nbsp;&nbsp;GOOD MUSHROOM</a>
+        <a class="navbar-brand" href="{{ url_for('main.home') }}"><img src="{{ url_for('static', filename='images/mushroom.svg') }}" class="mush_logo">&nbsp;&nbsp;GOOD MUSHROOM</a>
         {% if session.user %}
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -22,7 +22,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="btn btn-danger" aria-current="page" href="#"><i class="bi bi-power"></i></a>
+                    <a class="btn btn-danger" aria-current="page" href="{{ url_for('main.logout') }}"><i class="bi bi-power"></i></a>
                 </li>
             </ul>
 

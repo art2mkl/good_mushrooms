@@ -22,3 +22,9 @@ class TestingConfig(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = f"sqlite:///{APPLICATION_DIR}/mushrooms.sqlite"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+# Create the prod config
+class ProdConfig(Config):
+    DEBUG = False
+    SQLALCHEMY_DATABASE_URI = f"sqlite:///{APPLICATION_DIR}/mushrooms.sqlite"
+    SQLALCHEMY_TRACK_MODIFICATIONS = False

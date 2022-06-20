@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% from 'macros/form_field.html' import form_field %}
+
+{% block title %}Register{% endblock %}
+{% block content_title %}<i class="bi bi-save2"></i> Register{% endblock %}
+
+{% block left_content %}
+<div>
+    <h3 class="text-info">Register</h3>
+    <p>Sign in</p>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<form action="{{ url_for('main.register') }}" class="bg_glass form form-horizontal p-4 rounded shadow" method="post">
+
+    {{ form_field(form.name) }}
+    {{ form_field(form.email) }}
+    {{ form_field(form.password) }}
+
+
+    <div class="form-group">
+        <div>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+            <a class="btn btn-light" href="{{ url_for('main.home') }}">Cancel</a>
+        </div>
+    </div>
+</form>
+
+{% endblock %}
