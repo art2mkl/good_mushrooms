@@ -23,9 +23,13 @@ def create_app(config=DevelopmentConfig, admin=admin):
     from app.main import main as main_bp
     app.register_blueprint(main_bp, url_prefix='/')
 
-
     # register blueprints of applications
     from app.admin import admin as admin_bp
     app.register_blueprint(admin_bp)
+
+    # register blueprints of applications
+    from app.exploration import exploration as exploration_bp
+    app.register_blueprint(exploration_bp, url_prefix='/exploration')
+
    
     return app

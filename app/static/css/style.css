@@ -47,11 +47,12 @@
 }
 
 .a_item {
-    color:lightgray;
+    text-decoration: none;
+    color:cyan;
     transition: color 0.5s;
 }
 .a_item:hover {
-    color:cyan;
+    color:orange;
 }
 
 .pastille{
@@ -103,4 +104,38 @@ text-decoration:none;
 
 .border_dashed {
     border-style: dashed!important;
+}
+
+table {
+    background-color: white;
+    color: #333;
+    text-align: center;
+    border-collapse: collapse;
+    overflow: hidden;
+    width: 100%;
+}
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table tr:nth-child(even) {
+    background-color: #bbb;
+}
+
+table tr:hover {
+    background-color: #333;
+    color: #f1f1f1;
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: cornflowerblue;
+  color: white;
+}
+
+.graph {
+    width:15rem;
 }

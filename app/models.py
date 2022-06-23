@@ -76,4 +76,31 @@ class User(db.Model):
         else:
             return False
 
+ 
+#-------------------Model DATA-------------------
+class Data(db.Model):
 
+    _id = db.Column(db.Integer, primary_key=True)    
+    _class = db.Column(db.String(64))
+    _cap_shape = db.Column(db.String(64))
+    _cap_surface = db.Column(db.String(64))
+    _cap_color = db.Column(db.String(64))
+    _bruises = db.Column(db.String(64))
+    _odor = db.Column(db.String(64))
+    _gill_attachment = db.Column(db.String(64))
+    _gill_spacing = db.Column(db.String(64))
+    _gill_size =  db.Column(db.String(64))
+    _gill_color = db.Column(db.String(64))
+    _stalk_shape = db.Column(db.String(64))
+    _stalk_root = db.Column(db.String(64))
+    _stalk_surface_above_ring = db.Column(db.String(64))
+    _stalk_surface_below_ring = db.Column(db.String(64))
+    _stalk_color_above_ring = db.Column(db.String(64))
+    _stalk_color_below_ring = db.Column(db.String(64))
+    _veil_type = db.Column(db.String(64))
+    _veil_color = db.Column(db.String(64))
+    _ring_number = db.Column(db.String(64))
+    _ring_type = db.Column(db.String(64))
+    _spore_print_color = db.Column(db.String(64))
+    _population = db.Column(db.String(64))
+    _habitat = db.Column(db.String(64))
