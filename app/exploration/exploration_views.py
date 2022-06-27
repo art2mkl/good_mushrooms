@@ -31,7 +31,7 @@ Go to Home page
         mushroom = Mushroom_viz(pd.read_csv('mushrooms.csv'), 'class')
         
         #load raw df
-        raw_df = mushroom.df_to_html(mushroom.df)
+        raw_df = mushroom.df_to_png(mushroom.df, 'Raw Dataframe', True, 6, 6)
 
         #charge analyse
         raw_shape = mushroom.data_shape()
@@ -41,10 +41,11 @@ Go to Home page
         mushroom = Mushroom_viz(df, '_class')
 
         #charge dataload
-        modified_df = mushroom.df_to_html(mushroom.df)
+        modified_df = mushroom.df_to_png(mushroom.df, 'Modified Dataframe', True, 6, 6)
 
         #charge sample
         df_sample = mushroom.data_sample()
+        df_sample = mushroom.df_to_png(df_sample, 'Dataframe Sample')
 
         # Plot target repartition
         target = mushroom.look(mushroom.target)

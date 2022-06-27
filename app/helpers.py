@@ -12,6 +12,7 @@ sns.set_theme(style="white", rc={
         'axes.spines.top': False})
 import base64
 from io import BytesIO
+import dataframe_image as dfi
 
 
 class Mushroom_viz():
@@ -34,19 +35,58 @@ class Mushroom_viz():
 #--------------------------------------------------------------------
 #--------------------------------------------------------------------
 
-    def df_to_html(self,df):
+    def df_to_png(self, df, df_name:str, sample = False, lines:int = 0, columns:int = 0):
         """--------------------------------------------------------
-        Transform tf to html table string
-
+        Transform df to image loaded in buffer memory
             Parameters
-            df
+            dataframe, sample, nb_lines displayed, nb_column displayed
 
             Returns
-            df to html string
+            dict with target name and string of buffer img source
         ---------------------------------------------------------"""
-        df_tohtml = df.to_html(max_rows = 6, max_cols = 6)
 
-        return df_tohtml
+        #Save it to a temporary buffer.
+        buf = BytesIO()
+
+        if sample == True:
+            df=df.iloc[:lines,:columns]
+            df['...'] = '...'
+        
+        styles = [
+            dict( selector="th", props=[
+                ("color", "#fff"),
+                ("border", "1px solid #333"),
+                ("padding", "12px 35px"),
+                ("border-collapse", "collapse"),
+                ("background", "cornflowerblue"),
+                ("text-transform", "uppercase"),
+                ("font-size", "20px")
+                ]),
+            dict(selector="td", props=[(
+                "color", "#000"),
+                ("border", "1px solid #333"),
+                ("padding", "12px 35px"),
+                ("border-collapse", "collapse"),
+                ("font-size", "20px")
+                ]),
+            dict(selector="table", 
+                props=[
+                ("margin" , "25px auto"),
+                ("border-collapse" , "collapse"),
+                ("border" , "1px solid #333"),
+                ("border-bottom" , "2px solid #00cccc"),                                    
+                ]),
+            dict(selector="caption", props=[("caption-side", "bottom"),("margin", "10px auto")])
+        ]
+    
+        df = df.style.set_table_styles(styles).set_caption(f"Sample of {df_name} (made with pandas)")
+     
+        dfi.export(df,buf)
+
+        # Embed the result in the html output.
+        data = base64.b64encode(buf.getbuffer()).decode("ascii")
+
+        return {'target' : df_name, 'source' : f'data:image/png;base64,{data}'}   
     
 #--------------------------------------------------------------------
 #--------------------------------------------------------------------
@@ -80,7 +120,7 @@ class Mushroom_viz():
             self
 
             Returns
-            df to html string
+            df
         ---------------------------------------------------------"""
         samples = []
         for i in self.df.columns:
@@ -98,11 +138,10 @@ class Mushroom_viz():
             '% nulls':round((self.df.isnull().sum()/len(self.df))*100)   
             })
 
-        return obs.to_html()   
+        return obs 
     
     #--------------------------------------------------------------------
     #--------------------------------------------------------------------
-    
     
     def look(self, target):
         """--------------------------------------------------------
