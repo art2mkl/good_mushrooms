@@ -5,7 +5,7 @@ from flask_cors import CORS
 cors = CORS()
 
 # import extensions instance
-from app.models import db, admin, migrate
+from app.models.models import db, admin, migrate
 
 def create_app(config=DevelopmentConfig, admin=admin):
     app = Flask(__name__)
@@ -30,6 +30,10 @@ def create_app(config=DevelopmentConfig, admin=admin):
     # register blueprints of applications
     from app.exploration import exploration as exploration_bp
     app.register_blueprint(exploration_bp, url_prefix='/exploration')
+    
+    # register blueprints of applications
+    from app.basic import basic as basic_bp
+    app.register_blueprint(basic_bp, url_prefix='/basic')
 
    
     return app

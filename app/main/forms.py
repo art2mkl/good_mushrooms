@@ -1,7 +1,7 @@
 import wtforms
 from flask import flash, session
 from wtforms.validators import DataRequired
-from app.models import User
+from app.models.models import User
 
 class LoginForm(wtforms.Form):
 

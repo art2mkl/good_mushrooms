@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+{% block content_title %}<i class="bi bi-search"></i></i>&nbsp;BASIC ML{% endblock %}
+
+{% block under_content %}
+
+<div class="mt-2">
+    <h3 class="text-info">LOAD DATASET FROM DB</h3>
+    <p>VIEW DB DATASET</p>
+    <div class="d-flex justify-content-start align-items-center">
+        {{ display_df[0]|safe }}
+    </div>
+</div>
+
+
+<div>
+    <hr>
+    <h5 class="text-warning">COMMENTS :
+        <span class="text-light">
+            <ul>
+                <li>Original dataset sample is very clean</li> 
+                <li>No needs to delete or implement missing values</li>
+                <li>Some features are in the form of categorical data represented with initials</li>
+                <li>Cleaning will just consist in transforming categories in the form of initials into whole words with analyse of Dataset's documentation</li>
+            </ul>
+        </span>
+    </h5>
+    <hr>
+</div>
+
+<div class="mt-2">
+    <h3 class="text-info">LOAD DATASET FROM DB</h3>
+    <p>VIEW DB DATASET</p>
+    <div class="d-flex justify-content-start align-items-center">
+        {{ display_df[1]|safe }}
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

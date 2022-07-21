@@ -104,3 +104,15 @@ class Data(db.Model):
     _spore_print_color = db.Column(db.String(64))
     _population = db.Column(db.String(64))
     _habitat = db.Column(db.String(64))
+
+class Ml(db.Model):
+    id = db.Column(db.Integer, primary_key=True)  
+    name = db.Column(db.String(64))
+    cols = db.Column(db.String())
+    model = db.Column(db.String())
+    parameters = db.Column(db.String())
+    accuracy = db.Column(db.Float())
+    precision = db.Column(db.Float())
+    path = db.Column(db.String())
+
+

@@ -101,9 +101,11 @@ class Mushroom_viz():
             Returns
             dict with informations
         ---------------------------------------------------------"""
+
         dict = {
             'nb_lines': self.df.shape[0],
             'nb_cols' : self.df.shape[1],
+            'nb_duplicates': self.df.duplicated().sum(),
             'nb_no_null_cells' : self.df.notna().sum().sum(),
             'nb_null_cells' : self.df.isna().sum().sum()
         }
@@ -171,6 +173,39 @@ class Mushroom_viz():
         data = base64.b64encode(buf.getbuffer()).decode("ascii")
 
         return {'target' : target, 'source' : f'data:image/png;base64,{data}'}
+    
+    #--------------------------------------------------------------------
+    #--------------------------------------------------------------------
+
+    def look_with_hue(self, target, hue):
+        """--------------------------------------------------------
+        Shows a distribution graph of target with hue
+
+            Parameters
+            target in String
+
+            Returns
+            dict with target name and string of buffer img source
+        ---------------------------------------------------------"""
+        
+        fig, ax = plt.subplots(figsize=(5,5))
+        plot = sns.countplot(x = self.df[target], color = 'cornflowerblue', ax=ax, hue=self.df[hue], dodge=True)
+        ax.set_title(f'Distribution of {target}', size=15, weight='bold')
+        ax.xaxis.label.set_visible(False)
+        ax.yaxis.label.set_visible(False)
+        ax.bar_label(ax.containers[0])
+        xrotation = 0 if len(ax.get_xticks()) < 8 else 45
+        ax.tick_params(labelsize=10, labelrotation=xrotation)
+        ax.legend(loc='center')
+
+        #Save it to a temporary buffer.
+        buf = BytesIO()
+        fig.savefig(buf, format="png")
+
+        # Embed the result in the html output.
+        data = base64.b64encode(buf.getbuffer()).decode("ascii")
+
+        return {'target' : target, 'source' : f'data:image/png;base64,{data}', 'hue' : hue}
     
     #--------------------------------------------------------------------
     #--------------------------------------------------------------------

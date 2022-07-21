@@ -18,6 +18,7 @@
     <ul>
         <li class="text-info p-0">Number of lines : <span class="text-light">{{ raw_shape['nb_lines'] }} lines</span></li>
         <li class="text-info p-0">Number of columns : <span class="text-light">{{ raw_shape['nb_cols'] }} columns</span></li>
+        <li class="text-info p-0">Number of duplicates : <span class="text-light">{{ raw_shape['nb_duplicates'] }} rows</span></li>
         <li class="text-info p-0">Number of cells (no null) : <span class="text-light">{{ raw_shape['nb_no_null_cells'] }} cells
             (no null)</span></li>
             <li class="text-info p-0">Number of cells (null) : <span class="text-light">{{ raw_shape['nb_null_cells'] }} cells
@@ -31,9 +32,10 @@
         <span class="text-light">
             <ul>
                 <li>Original dataset sample is very clean</li> 
-                <li>No needs to delete or implement missing values</li>
-                <li>Some features are in the form of categorical data represented with initials</li>
-                <li>Cleaning will just consist in transforming categories in the form of initials into whole words with analyse of Dataset's documentation</li>
+                <li>DUPLICATES : No needs to drop duplicates</li>
+                <li>MISSING VALUES : No needs to delete or implement missing values</li>
+                <li>TYPE : Some features are in the form of categorical data represented with initials</li>
+                <li>CLEAN : Cleaning will just consist in transforming categories in the form of initials into whole words with analyse of Dataset's documentation</li>
             </ul>
         </span>
     </h5>
@@ -65,6 +67,7 @@
                 <li>All Dataset was cleaned with full string</li>
                 <li>Dataset contains just one categorical type : string object</li>
                 <li>There are no numerical feature except index</li>
+                <li>There are no outliers</li>
                 <li>Each feature has 2 to 12 distinct categories</li>
                 <li>It will be necessary to encode these categories when creating the model in the future</li>
             </ul>
@@ -74,7 +77,7 @@
 </div>
 
 <div>
-    <h3 class="text-info">Analyse de la Target : {{ target.target }} </h3>
+    <h3 class="text-info">Analyse of Target : {{ target.target }} </h3>
     <p>View distribution of Target</p>
     <div class="text-center">
         <img class="graph" src="{{ target.source|safe }}" alt="graphique de repartition">
@@ -91,10 +94,10 @@
         </span>
     </h5>
         <hr>
-    </div>
+</div>
     
-    <h3 class="text-info">Analyse Features </h3>
-    <p>View distribution of features</p>
+    <h3 class="text-info">FEATURE SELECTION : Simple Distribution </h3>
+    <p>View self distribution of features</p>
     
     <div class="d-flex justify-content-center align-items-center flex-wrap bg-white">
         
@@ -126,9 +129,50 @@
     </span>
 </h5>
 
-
-
-
+<h3 class="text-info">FEATURE SELECTION : Distribution with Target</h3>
+    <p>View distribution of selected features with y</p>
+    
+    <div class="d-flex justify-content-center align-items-center flex-wrap bg-white">
+        
+        {% for feature in dist_features_with_hue %}
+        <div>
+            <img class="graph" src="{{ feature.source|safe }}" alt="graphique de distribution de {{ feature.target }}">
+        </div>
+        {% endfor %}
+        <hr>
+    </div>
+    <hr>
+<h5 class="text-warning">COMMENTS :
+    <span class="text-light">
+        <ul>
+            <li>Some features have a distribution of their values with a certain variance compared to target. <br>This features should be important for the model creation&nbsp;:</li>
+            <ul>
+                <li>_habitat,</li>
+                <li>_odor,</li>
+                <li>_population,</li>
+                <li>_bruises,</li>
+                <li>_cap_color</li>
+                <li>_cap_surface</li>
+                <li>_cap_shape</li>
+                <li>_gill_size</li>
+            </ul>
+            <li>The choice of features will also have to integrate&nbsp;:</li>
+            <ul>
+                <li>that the criteria of observations is easy for user</li>
+                <li>that the climatic conditions do not alter observations</li>
+                <li>the primary biological criteria are present</li>
+            </ul>
+            <li>For default model, the primary feature selection will include</li>
+            <ul>
+                <li>'_habitat'</li>
+                <li>'_gill_color'</li>
+                <li>'_population'</li>
+                <li>'_cap_shape'</li>
+                <li>'_odor'</li>
+            </ul>
+        </ul>
+    </span>
+</h5>
 
 
 

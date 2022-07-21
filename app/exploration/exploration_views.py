@@ -1,9 +1,9 @@
 from flask import render_template, redirect, url_for, flash, session
 import pandas as pd
-from app.models import db, User, Data
+from app.models.models import db, User, Data
 from dotenv import load_dotenv
 import os
-from app.helpers import Mushroom_viz
+from app.models.mushroom_viz import Mushroom_viz
 
 # import the exploration blue print instance
 from app.exploration import exploration
@@ -36,8 +36,8 @@ Go to Home page
         #charge analyse
         raw_shape = mushroom.data_shape()
 
-        #load object with modified df load in db
-        df = pd.read_sql_query(db.select(Data), db.engine)
+        #load object with modified df load in db and drop _id
+        df = pd.read_sql_query(db.select(Data), db.engine).drop('_id', axis=1)
         mushroom = Mushroom_viz(df, '_class')
 
         #charge dataload
@@ -50,13 +50,14 @@ Go to Home page
         # Plot target repartition
         target = mushroom.look(mushroom.target)
         
-        #drop _id
-        mushroom.X = mushroom.X.drop('_id', axis=1)
-        print(mushroom.X.columns)
-
         #Get list of features distribution
         print('debut')
         dist_features = [mushroom.look(col) for col in mushroom.X.columns]
+        print('fin')
+
+        #Get list of features distribution
+        print('debut')
+        dist_features_with_hue = [mushroom.look_with_hue(col, '_class') for col in mushroom.X.columns]
         print('fin')
 
         return render_template(
@@ -66,5 +67,6 @@ Go to Home page
             modified_df = modified_df,
             df_sample = df_sample,
             target = target,
-            dist_features = dist_features
+            dist_features = dist_features,
+            dist_features_with_hue = dist_features_with_hue
             ) 

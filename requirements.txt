@@ -13,3 +13,4 @@ numpy
 matplotlib
 seaborn
 dataframe_image
+sklearn

@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for, flash, request, session
 import pandas as pd
 from numpy import genfromtxt
-from app.models import db, User, Data
+from app.models.models import db, User, Data
 from dotenv import load_dotenv
 import os
 from app.main.forms import LoginForm, RegisterForm
