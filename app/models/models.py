@@ -106,6 +106,7 @@ class Data(db.Model):
     _habitat = db.Column(db.String(64))
 
 class Ml(db.Model):
+    
     id = db.Column(db.Integer, primary_key=True)  
     name = db.Column(db.String(64))
     cols = db.Column(db.String())
@@ -114,5 +115,6 @@ class Ml(db.Model):
     accuracy = db.Column(db.Float())
     precision = db.Column(db.Float())
     path = db.Column(db.String())
+    display = db.Column(db.Boolean(), default=True)
 
 

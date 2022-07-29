@@ -15,6 +15,8 @@ def create_app(config=DevelopmentConfig, admin=admin):
 
     # initialize extension instances
     db.init_app(app)
+    with app.app_context():
+        db.create_all()
     admin.init_app(app)
     migrate.init_app(app, db)
     db.app = app

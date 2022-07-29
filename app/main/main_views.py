@@ -55,6 +55,7 @@ init db, drop all tables and init tables
     #load .csv on data
     load_csv()
 
+
     flash("Database is initialized successfully", "success")
     return redirect(url_for('main.home'))
 
