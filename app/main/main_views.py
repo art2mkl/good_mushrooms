@@ -1,7 +1,8 @@
 from flask import render_template, redirect, url_for, flash, request, session
 import pandas as pd
 from numpy import genfromtxt
-from app.models.models import db, User, Data
+from app.models.models import db, User, Data, Ml
+import shutil
 from dotenv import load_dotenv
 import os
 from app.main.forms import LoginForm, RegisterForm
@@ -9,6 +10,25 @@ from app.main.forms import LoginForm, RegisterForm
 # import the main blue print instance
 from app.main import main
 
+def del_folder(folder):
+    """-------------------------------------------------------------------------------------
+Delete <folder> and create it again
+
+    Parameters :
+    folder
+
+    Returns :
+    None
+   --------------------------------------------------------------------------------------"""
+
+    try:
+        shutil.rmtree(folder)
+    except OSError as e:
+        print("initialisation du repertoire")
+        # print(f"Error:{ e.strerror}")
+
+    # créé le repertoire <folder>
+    os.makedirs(folder, exist_ok=True)
 
 @main.route('/')
 def home():
@@ -55,6 +75,8 @@ init db, drop all tables and init tables
     #load .csv on data
     load_csv()
 
+    #del models folders
+    del_folder('app/models/load_models')  
 
     flash("Database is initialized successfully", "success")
     return redirect(url_for('main.home'))
