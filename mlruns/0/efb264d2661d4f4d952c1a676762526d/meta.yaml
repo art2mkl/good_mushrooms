@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/baguidou/Desktop/mushrooms/mlruns/0/efb264d2661d4f4d952c1a676762526d/artifacts
+end_time: 1661596307222
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: efb264d2661d4f4d952c1a676762526d
+run_uuid: efb264d2661d4f4d952c1a676762526d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1661596306958
+status: 3
+tags: []
+user_id: baguidou
