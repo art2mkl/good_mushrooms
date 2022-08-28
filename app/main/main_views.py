@@ -46,6 +46,7 @@ Go to Home page
     if not session:
         return redirect(url_for('main.login'))
     else: 
+
         return render_template('main/index.html')   
 
 

@@ -37,5 +37,9 @@ def create_app(config=DevelopmentConfig, admin=admin):
     from app.basic import basic as basic_bp
     app.register_blueprint(basic_bp, url_prefix='/basic')
 
+    # register blueprints of applications
+    from app.prediction import prediction as prediction_bp
+    app.register_blueprint(prediction_bp, url_prefix='/prediction')
+
    
     return app

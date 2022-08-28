@@ -1,0 +1,41 @@
+@app.prediction.prediction.html
+input features + traduction
+
+@app.static.js.prediction.js
+- fonction asynchrone vers prediction
+- mettre un icon timer
+- gérer les apparitions de résultats
+
+
+@app.basic
+recopier en html le notebook après avoir runner le notebook avec les criteres de style pandas (prévoir une sauvegarde)
+
+@app.main.index.html
+- mettre un icon timer
+- le gérer dans un js associé
+- stylyser la premiere page en rajoutant l'objectif de l'app et la photo d'un champi avec la légende
+- creer une copie de la page exploration en html pur premiere page
+
+@test créer 2/3 tests
+
+@azure mettre en prod et tester la production
+
+@réaliser le rapport à l'aide des modules attendus (intégrer notamment sommaire, objectif, etat de l'art, products backlog, planification, exploration, analyse, monitoring, création de l'app,  scoring)
+
+
+Les créneaux sont de 45 minutes (au lieu de 65 minutes pour la certification officielle).
+
+ Le passage de 45 minutes sera découpé de cette manière : 
+
+1. Présentation du projet, incluant une démonstration (20 min au lieu de 30 minutes pour la certification officielle). 
+Ps 1 : Préparer des slides avec uniquement les informations importantes de votre oral. 
+Ps 2 : Ne pas mettre trop d'information sur une slide. Exemple : Maximum 50 mots.
+
+2.  Questions et échanges avec le jury sur le projet (20 min au lieu de 30 minutes pour la certification officielle).
+
+3.  Echange avec le jury sur le cas pratique E2 (5min).
+
+  Vous devez envoyer vos 3 rapports écrits au plus tard le mercredi 7 septembre inclus. (modifié)
+[09:54]
+
+

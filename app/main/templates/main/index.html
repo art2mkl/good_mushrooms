@@ -4,13 +4,18 @@
 {% block title %}Home{% endblock %}
 {% block content_title %}<i class="bi bi-house-door-fill"></i></i>&nbsp;MUSHROOMS{% endblock %}
 
-{% block left_content %}
-<div>
-    <h3 class="text-info">CONNECT</h3>
-    <p>Acces to your Project Dashboard</p>
+
+{% block under_content %}
+<div class="dflex justify-content-center align-items-center text-center">
+    
+    <a href="{{ url_for('exploration.explore') }}" class="home_btn btn btn-info mx-3"><div class="dflex justify-content-center align-items-center"><i class="big bi bi-binoculars-fill"></i><p>EXPLORE DATA</p></div></a>
+    <a href="{{ url_for('exploration.explore') }}" class="home_btn btn btn-info mx-3"><div class="dflex justify-content-center align-items-center"><i class="big bi bi-pc-display-horizontal"></i><p>ANALYZE MODELS</p></div></a>
+    <a href="{{ url_for('prediction.make_prediction') }}" class="home_btn btn btn-info mx-3"><div class="dflex justify-content-center align-items-center"><i class="big bi bi-lightbulb"></i><p>MAKE PREDICTION</p></div></a>
 
 </div>
+
 {% endblock %}
+
 
 
 {% block content %}

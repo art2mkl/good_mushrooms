@@ -139,3 +139,12 @@ table th {
 .graph {
     width:15rem;
 }
+.home_btn{
+    min-width:10rem;
+
+    transition: background border-color 0.5s;
+}
+.home_btn:hover{
+    background: orange;
+    border-color:orange;
+}

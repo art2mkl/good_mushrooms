@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+{% block content_title %}<i class="bi bi-search"></i></i>&nbsp;PREDICTION{% endblock %}
+
+{% block under_content %}
+
+<form action="{{ url_for('prediction.make_prediction') }}" id="predict_form">
+<label for="choose_model" class="form-label text-info">CHOOSE YOUR MODEL</label>
+<select name="choose_model" id="choose_model" class="choose_model form-control"></select>
+    
+</form>
+
+<div>
+    <hr>
+    <h5 class="text-warning">COMMENTS :
+        <span class="text-light">
+            <ul>
+                <li>Original dataset sample is very clean</li> 
+                <li>No needs to delete or implement missing values</li>
+                <li>Some features are in the form of categorical data represented with initials</li>
+                <li>Cleaning will just consist in transforming categories in the form of initials into whole words with analyse of Dataset's documentation</li>
+            </ul>
+        </span>
+    </h5>
+    <hr>
+</div>
+
+<div class="mt-2">
+    <h3 class="text-info">LOAD DATASET FROM DB</h3>
+    <p>VIEW DB DATASET</p>
+    
+</div>
+{% endblock %}
+
+{% block more_scripts %}
+<script src="{{url_for('static', filename='js/prediction.js')}}"></script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
