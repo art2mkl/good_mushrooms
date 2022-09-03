@@ -3,6 +3,7 @@ const loc_origin = window.location.origin
 $('.answer').hide()
 $('.poisoned').hide()
 $('.edible').hide()
+$('.diag').hide()
 
 
 //-------------------------------------------------------------------------------------------------------------
@@ -43,6 +44,7 @@ $('form').on('submit', e => {
     $('.answer').hide()
     $('.poisoned').hide()
     $('.edible').hide()
+    $('.diag').hide()
 
     if ($('select').eq(0).val() == "no-value"
         || $('select').eq(1).val() == "no-value"
@@ -52,8 +54,8 @@ $('form').on('submit', e => {
          
         {
         console.log('c est vide')
-        $('.diag').text("Veuillez remplir tous les champs")
         $('.answer').fadeIn()
+        $('.diag').fadeIn()
         $('.cross').on('click', () => {
             $('.answer').fadeOut()
         })
@@ -76,8 +78,7 @@ $('form').on('submit', e => {
                 $('.answer').fadeIn()
                 $('.edible').fadeIn()    
             } else if (prediction == 'poisoned') {
-                $('.answer').fadeIn()
-                $('.edible').hide()     
+                $('.answer').fadeIn()     
                 $('.poisoned').fadeIn()
             }
             $('.cross').on('click', () => {
