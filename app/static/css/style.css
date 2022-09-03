@@ -148,3 +148,28 @@ table th {
     background: orange;
     border-color:orange;
 }
+
+.answer {
+    width:25rem;
+    height:25rem;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    opacity: 95%;
+}
+
+.cross {
+    color: brown;
+    }
+
+.diag {
+    position:absolute;
+    top: 50%;
+    left:50%; 
+    transform: translate(-50%, -50%);
+}
+
+.very-big {
+    font-size:10rem;
+    text-shadow: #333 1px 1px 5px;
+}
