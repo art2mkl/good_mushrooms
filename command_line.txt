@@ -1,0 +1,5 @@
+Pour la WEB APP:
+- Startup Command:
+gunicorn --bind=0.0.0.0 --workers=4 main:app
+
+- upload les variables d'environnement

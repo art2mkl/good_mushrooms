@@ -39,3 +39,6 @@ Ps 2 : Ne pas mettre trop d'information sur une slide. Exemple : Maximum 50 mots
 [09:54]
 
 
+
+
+
