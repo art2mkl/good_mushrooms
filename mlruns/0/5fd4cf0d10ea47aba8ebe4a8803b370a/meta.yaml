@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/baguidou/Desktop/IA/102_projet_oeuvre/good_mushrooms/mlruns/0/5fd4cf0d10ea47aba8ebe4a8803b370a/artifacts
+end_time: 1662316818811
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 5fd4cf0d10ea47aba8ebe4a8803b370a
+run_uuid: 5fd4cf0d10ea47aba8ebe4a8803b370a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1662316818449
+status: 3
+tags: []
+user_id: baguidou

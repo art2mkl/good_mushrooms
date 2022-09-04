@@ -1,6 +1,5 @@
-mushrooms/
+mushrooms_env/
 migrations/
-mushrooms.sqlite
 .env
 archives_directives/
 
