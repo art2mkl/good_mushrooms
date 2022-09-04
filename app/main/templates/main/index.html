@@ -6,13 +6,46 @@
 
 
 {% block under_content %}
-<div class="dflex justify-content-center align-items-center text-center">
-    
-    <a href="{{ url_for('exploration.explore') }}" class="home_btn btn btn-info mx-3"><div class="dflex justify-content-center align-items-center"><i class="big bi bi-binoculars-fill"></i><p>EXPLORE DATA</p></div></a>
-    <a href="{{ url_for('exploration.explore') }}" class="home_btn btn btn-info mx-3"><div class="dflex justify-content-center align-items-center"><i class="big bi bi-pc-display-horizontal"></i><p>ANALYZE MODELS</p></div></a>
-    <a href="{{ url_for('prediction.make_prediction') }}" class="home_btn btn btn-info mx-3"><div class="dflex justify-content-center align-items-center"><i class="big bi bi-lightbulb"></i><p>MAKE PREDICTION</p></div></a>
+
+<div class="mt-2">
+    <h3 class="text-info">Mushroom edibility predictor</h3>
+
+    <div class="row d-flex justify-content-between align-items-center">
+        <div class="col-sm p-2">
+            <h5 class="text-warning">About</h5>
+        <ul>
+        <li>This application aims to allow a user to predict the edibility of a mushroom from Agaricus or Lepiota famillies.</li>
+        <li>The user has a tool allowing him to make a prediction after chosen a model and informed some physical characteristics</li>
+        <li>All the studies used to explore the data and create the models are integrated and accessible in the menu bar.</li>
+        <hr>
+        <h5 class="text-warning">WARNINGS :
+            <span class="text-light">
+                <p>This website is an exercise for an IA school. We disclaim any responsibility for the use of the data or for any erroneous predictions.</p>
+            </span>
+        </h5>
+        </ul>
+        </div>
+
+        <div class="col-sm">
+            <div class="d-flex justify-content-center align-items-center">
+                <img class = "w-50 h-auto bg_glass p-1 rounded shadow" src="{{ url_for('static', filename='images/mushroom_anatomy.png') }}" alt="Anatomy of mushroom }}">
+            </div>   
+        </div>
+        
+
+
+    </div>
+
 
 </div>
+
+<!-- <div class="dflex justify-content-center align-items-center text-center">
+    
+    <a href="{{ url_for('exploration.explore') }}" class="home_btn btn btn-info m-3"><div class="dflex justify-content-center align-items-center"><i class="big bi bi-binoculars-fill"></i><p>EXPLORE DATA</p></div></a>
+    <a href="{{ url_for('basic.basic') }}" class="home_btn btn btn-info m-3"><div class="dflex justify-content-center align-items-center"><i class="big bi bi-pc-display-horizontal"></i><p>ANALYZE MODELS</p></div></a>
+    <a href="{{ url_for('prediction.make_prediction') }}" class="home_btn btn btn-info m-3"><div class="dflex justify-content-center align-items-center"><i class="big bi bi-lightbulb"></i><p>MAKE PREDICTION</p></div></a>
+
+</div> -->
 
 {% endblock %}
 

@@ -461,6 +461,9 @@ class Mushroom_ml():
         plt.plot(N, train_score.mean(axis = 1), label = 'train')
         plt.plot(N, val_score.mean(axis = 1), label = 'validation')
         plt.xlabel('train_sizes')
+
+        plt.title(f"Learning Curve of accuracy with {sendmodel}", size=15, weight='bold' )
+       
         plt.legend()
 
         return None

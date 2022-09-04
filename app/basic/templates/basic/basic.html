@@ -1,28 +1,28 @@
 {% extends 'base.html' %}
 
 {% block title %}Home{% endblock %}
-{% block content_title %}<i class="bi bi-search"></i></i>&nbsp;BASIC ML{% endblock %}
+{% block content_title %}<i class="bi bi-pc-display-horizontal"></i></i>&nbsp;BASIC MODEL CREATION{% endblock %}
 
 {% block under_content %}
 
 <div class="mt-2">
-    <h3 class="text-info">LOAD DATASET FROM DB</h3>
-    <p>VIEW DB DATASET</p>
-    <div class="d-flex justify-content-start align-items-center">
-        {{ display_df[0]|safe }}
+    <h3 class="text-info">Analysis of precision models according to a CROSS VALIDATION (encoder=OneHotEncoder())</h3>
+    <p><span class="text-warning">Metric used :</span> "PRECISION" </p>
+    
+    <div class="d-flex justify-content-center align-items-center">
+        <img class = "w-100 h-auto bg-white p-1 rounded shadow" src="{{ url_for('static', filename='images/first_cross_val.png') }}" alt="first cross validation">
     </div>
 </div>
-
 
 <div>
     <hr>
     <h5 class="text-warning">COMMENTS :
         <span class="text-light">
             <ul>
-                <li>Original dataset sample is very clean</li> 
-                <li>No needs to delete or implement missing values</li>
-                <li>Some features are in the form of categorical data represented with initials</li>
-                <li>Cleaning will just consist in transforming categories in the form of initials into whole words with analyse of Dataset's documentation</li>
+                <li>The metric used is "precision" because we want to be absolutely sure that a mushroom identified as edible is indeed edible.</li> 
+                <li>The encoding used is a OneHotEncoder because the categorical values are not ordered with respect of target prediction.</li>
+                <li>The results of cross validation on all the features are very high.</li>
+                <li>Some models have maximum scores like: SGDClassifier, RandomForest, LinearSVC</li>
             </ul>
         </span>
     </h5>
@@ -30,12 +30,271 @@
 </div>
 
 <div class="mt-2">
-    <h3 class="text-info">LOAD DATASET FROM DB</h3>
-    <p>VIEW DB DATASET</p>
-    <div class="d-flex justify-content-start align-items-center">
-        {{ display_df[1]|safe }}
+    <h3 class="text-info">FEATURE SELECTION (MODEL:DECISIONTREE, ENCODER:ONEHOTENCODER)</h3>
+    <p>Features_importances (euclidian approch) of coefficients</p>
+    
+    <div class="d-flex justify-content-center align-items-center">
+        <img class = "w-75 h-auto bg-white p-1 rounded shadow" src="{{ url_for('static', filename='images/Features_importances.png') }}" alt="features importance approch">
     </div>
 </div>
+
+<div>
+    <hr>
+    <h5 class="text-warning">COMMENTS :
+        <span class="text-light">
+            <ul>
+                <li>Extraction using "features_importance" module from "Decision Tree" model</li> 
+                <li>Multiple values due to encoding were consolidated using a Euclidean approach.</li>
+                <li>Through this extraction, the "_ODOR" feature seems to be particularly important</li>
+            </ul>
+        </span>
+    </h5>
+    <hr>
+</div>
+
+<div class="mt-2">
+    <h3 class="text-info">Evaluations of One Feature Decision Tree Model offering bests results</h3>
+    <p><span class="text-warning">Metric used :</span> "PRECISION" </p>
+    
+    <div class="d-flex justify-content-center align-items-center">
+        <img class = "w-50 h-auto bg-white p-1 rounded shadow" src="{{ url_for('static', filename='images/first_feature.png') }}" alt="features selection-1">
+    </div>
+</div>
+
+<div>
+    <hr>
+    <h5 class="text-warning">COMMENTS :
+        <span class="text-light">
+            <ul>
+                <li>A Decision Tree model is created with a dataset containing a single feature</li> 
+                <li>Each feature is then compared to a Precision metric</li>
+                <li>"_ODOR" offers the best results for a one feature model</li>
+            </ul>
+        </span>
+    </h5>
+    <hr>
+</div>
+
+<div class="mt-2">
+    <h3 class="text-info">Evaluations of Two Features Tree Model offering bests results</h3>
+    <p><span class="text-warning">Metric used :</span> "PRECISION" </p>
+    
+    <div class="d-flex justify-content-center align-items-center">
+        <img class = "w-50 h-auto bg-white p-1 rounded shadow" src="{{ url_for('static', filename='images/second_feature.png') }}" alt="features selection-2">
+    </div>
+</div>
+
+<div>
+    <hr>
+    <h5 class="text-warning">COMMENTS :
+        <span class="text-light">
+            <ul>
+                <li>We keep "_ODOR" feature and analyze integration of another feature </li> 
+                <li>"_HABITAT" has good results and is an easy feature to identify in the field.</li>
+            </ul>
+        </span>
+    </h5>
+    <hr>
+</div>
+
+<div class="mt-2">
+    <h3 class="text-info">Evaluations of Three Features Tree Model offering bests results</h3>
+    <p><span class="text-warning">Metric used :</span> "PRECISION" </p>
+    
+    <div class="d-flex justify-content-center align-items-center">
+        <img class = "w-50 h-auto bg-white p-1 rounded shadow" src="{{ url_for('static', filename='images/third_feature.png') }}" alt="features selection-3">
+    </div>
+</div>
+
+<div>
+    <hr>
+    <h5 class="text-warning">COMMENTS :
+        <span class="text-light">
+            <ul>
+                <li>We keep "_ODOR" and "_HABITAT" features and analyze integration of another feature </li> 
+                <li>"_CAP_COLOR" has good results and is an easy feature to identify in the field.</li>
+            </ul>
+        </span>
+    </h5>
+    <hr>
+</div>
+
+<div class="mt-2">
+    <h3 class="text-info">Evaluations of Four Features Tree Model offering bests results</h3>
+    <p><span class="text-warning">Metric used :</span> "PRECISION" </p>
+    
+    <div class="d-flex justify-content-center align-items-center">
+        <img class = "w-50 h-auto bg-white p-1 rounded shadow" src="{{ url_for('static', filename='images/fourth_feature.png') }}" alt="features selection-4">
+    </div>
+</div>
+
+<div>
+    <hr>
+    <h5 class="text-warning">COMMENTS :
+        <span class="text-light">
+            <ul>
+                <li>We keep "_ODOR", "_HABITAT" and "_CAP_COLOR" features and analyze integration of another feature </li> 
+                <li>"_BRUISES" has good results and is an easy feature to identify in the field.</li>
+                <li>"_POPULATION" will be so a good feature to incorporate if model evolves in a 5 features model in the furure.</li>
+            </ul>
+        </span>
+    </h5>
+    <hr>
+</div>
+
+<div class="mt-2">
+    <h3 class="text-info">Second analysis of precision models according to a CROSS VALIDATION (encoder=OneHotEncoder())</h3>
+    <p><span class="text-warning">Features used :</span> "_ODOR", "_HABITAT", "CAP_COLOR", "BRUISES"<br>
+    <span class="text-warning">Metric used :</span> "PRECISION" </p>
+    
+    <div class="d-flex justify-content-center align-items-center">
+        <img class = "w-100 h-auto bg-white p-1 rounded shadow" src="{{ url_for('static', filename='images/second_cross_val.png') }}" alt="second cross validation">
+    </div>
+</div>
+
+<div>
+    <hr>
+    <h5 class="text-warning">COMMENTS :
+        <span class="text-light">
+            <ul>
+                <li>The results of cross validation on all the features are very high.</li>
+                <li>Some models have very good scores like: KNeighborsClassifier, DecisionTreeClassifier</li>
+                <li>It's interesting to test other linear models like RidgeCV and LogosticRegression</li>
+            </ul>
+        </span>
+    </h5>
+    <hr>
+</div>
+
+<div class="mt-2">
+    <h3 class="text-info">KNeighborsClassifier</h3>
+    <p><span class="text-warning">Parameters after GrindSearch : </span>n_neighbors=1, metric='euclidean<br>
+    <span class="text-warning">Metric used : </span> "PRECISION" </p>
+    
+    <div class="d-flex justify-content-center align-items-center">
+        <img class = "w-50 h-auto bg-white p-1 rounded shadow" src="{{ url_for('static', filename='images/KN_ConfusionMatrix.png') }}" alt="KN_ConfusionMatrix">
+    </div>
+    <hr>
+    <p class="text-warning">KNeighborsClassifier Learning Curve Analysis</p>
+    <div class="d-flex justify-content-center align-items-center">
+        <img class = "w-50 h-auto bg-white p-1 rounded shadow" src="{{ url_for('static', filename='images/KN_LearningCurve.png') }}" alt="KN_LearningCurve">
+    </div>
+</div>
+
+<div>
+    <hr>
+    <h5 class="text-warning">COMMENTS :
+        <span class="text-light">
+            <ul>
+                <li>Precision is at the top</li>
+                <li>Accuracy is very high (just one error)</li>
+                <li>Model seems to be generalized, Learning Curve is progresses in a positive way and seems to stabilize after 3000 records</li>
+                <li>Training dataset seems to be sufficient</li>
+            </ul>
+        </span>
+    </h5>
+    <hr>
+</div>
+
+
+<div class="mt-2">
+    <h3 class="text-info">RidgeCV</h3>
+    <p><span class="text-warning">Parameters after GrindSearch : </span>alphas=0.1<br>
+    <span class="text-warning">Metric used : </span> "PRECISION" </p>
+    
+    <div class="d-flex justify-content-center align-items-center">
+        <img class = "w-50 h-auto bg-white p-1 rounded shadow" src="{{ url_for('static', filename='images/RidgeCV_ConfusionMatrix.png') }}" alt="RidgeCV_ConfusionMatrix">
+    </div>
+    <hr>
+    <p class="text-warning">RidgeCV Learning Curve Analysis</p>
+    <div class="d-flex justify-content-center align-items-center">
+        <img class = "w-50 h-auto bg-white p-1 rounded shadow" src="{{ url_for('static', filename='images/RidgeCV_LearningCurve.png') }}" alt="RidgeCV_LearningCurve">
+    </div>
+</div>
+
+<div>
+    <hr>
+    <h5 class="text-warning">COMMENTS :
+        <span class="text-light">
+            <ul>
+                <li>Precision and Accuracy is much lower (46 errors) </li>
+                <li>validation curve seems to stagnate</li>
+                <li>model seems to have difficulty in generalizing</li>
+            </ul>
+        </span>
+    </h5>
+    <hr>
+</div>
+
+<div class="mt-2">
+    <h3 class="text-info">Logistic Regression</h3>
+    <p><span class="text-warning">Parameters after GrindSearch : </span>C=10<br>
+    <span class="text-warning">Metric used : </span> "PRECISION" </p>
+    
+    <div class="d-flex justify-content-center align-items-center">
+        <img class = "w-50 h-auto bg-white p-1 rounded shadow" src="{{ url_for('static', filename='images/LR_ConfusionMatrix.png') }}" alt="LR_ConfusionMatrix">
+    </div>
+    <hr>
+    <p class="text-warning">Logistic Regression Learning Curve Analysis</p>
+    <div class="d-flex justify-content-center align-items-center">
+        <img class = "w-50 h-auto bg-white p-1 rounded shadow" src="{{ url_for('static', filename='images/LR_LearningCurve.png') }}" alt="LR_LearningCurve">
+    </div>
+</div>
+
+<div>
+    <hr>
+    <h5 class="text-warning">COMMENTS :
+        <span class="text-light">
+            <ul>
+                <li>Precision and Accuracy is a little lower than kn (10 errors) </li>
+                <li>Learning Curve is progresses in a positive way but seems to stagnate</li>
+                <li>model seems to have difficulty in generalizing</li>
+            </ul>
+        </span>
+    </h5>
+    <hr>
+</div>
+
+
+<div class="mt-2">
+    <h3 class="text-info">Decision Tree</h3>
+    <p><span class="text-warning">Parameters after GrindSearch : </span>criterion='entropy',max_depth=9,min_samples_leaf=1,min_samples_split=2<br>
+    <span class="text-warning">Metric used : </span> "PRECISION" </p>
+    
+    <div class="d-flex justify-content-center align-items-center">
+        <img class = "w-50 h-auto bg-white p-1 rounded shadow" src="{{ url_for('static', filename='images/Tree_ConfusionMatrix.png') }}" alt="Tree_ConfusionMatrix">
+    </div>
+    <hr>
+    <p class="text-warning">Decision Tree Learning Curve Analysis</p>
+    <div class="d-flex justify-content-center align-items-center">
+        <img class = "w-50 h-auto bg-white p-1 rounded shadow" src="{{ url_for('static', filename='images/Tree_LearningCurve.png') }}" alt="Tree_LearningCurve">
+    </div>
+</div>
+
+<div>
+    <hr>
+    <h5 class="text-warning">COMMENTS :
+        <span class="text-light">
+            <ul>
+                <li>Precision is at the top</li>
+                <li>Accuracy is very high (just one error)</li>
+                <li>Model seems to be generalized, Learning Curve is progresses in a positive way and seems to stabilize after 3500 records but it presents some big noise in the begining</li>
+                <li>Training dataset seems to be sufficient</li>
+            </ul>
+        </span>
+    </h5>
+    <hr>
+</div>
+
+<div class="mt-2">
+    <h3 class="text-info">CONCLUSION</h3>
+    <p>
+        <span class="text-warning">Monitoring : </span>all models are monitored with an ml-flow api keeping the scores and parameters related to their design.<br>
+        <span class="text-warning">Database : </span> Each model has been trained on the dataset and saved to a database in order to be easily load and used in the prediction application.<br>
+        <span class="text-warning">Best models : </span> KNeighboursClassifier() and DecisionTreeClassifier offer the best accuracy and should be used first.
+ </p>
+
+
 
 
 

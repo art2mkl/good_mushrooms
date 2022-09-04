@@ -7,13 +7,13 @@
 ||OK|| - gérer les apparitions de résultats
 
 
-@app.basic
-recopier en html le notebook après avoir runner le notebook avec les criteres de style pandas (prévoir une sauvegarde)
+||OK||@app.basic
+||OK||recopier en html le notebook après avoir runner le notebook avec les criteres de style pandas (prévoir une sauvegarde)
 
 @app.main.index.html
 - mettre un icon timer
 - le gérer dans un js associé
-- stylyser la premiere page en rajoutant l'objectif de l'app et la photo d'un champi avec la légende
+||OK||- stylyser la premiere page en rajoutant l'objectif de l'app et la photo d'un champi avec la légende
 - creer une copie de la page exploration en html pur
 
 @test créer 2/3 tests
