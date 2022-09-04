@@ -15,6 +15,7 @@
 - le gérer dans un js associé
 ||OK||- stylyser la premiere page en rajoutant l'objectif de l'app et la photo d'un champi avec la légende
 - creer une copie de la page exploration en html pur
+- corriger l'erreur d'affichage d'une image features importances sur heroku
 
 @test créer 2/3 tests
 
@@ -37,6 +38,8 @@ Ps 2 : Ne pas mettre trop d'information sur une slide. Exemple : Maximum 50 mots
 
   Vous devez envoyer vos 3 rapports écrits au plus tard le mercredi 7 septembre inclus. (modifié)
 [09:54]
+
+
 
 
 
