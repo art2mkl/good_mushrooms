@@ -9,19 +9,19 @@
     <h3 class="text-info">LOAD DATASET FROM CSV SOURCE</h3>
     <p>VIEW RAW DATASET</p>
     <div class="d-flex justify-content-center align-items-center">
-        <img class = "w-100 h-auto bg-white p-1 rounded shadow" src="{{ raw_df.source|safe }}" alt="sample of {{ raw_df.target|safe }}">
+        <img class = "w-100 h-auto bg-white p-1 rounded shadow" src="{{ url_for('static', filename='images/raw_df.png') }}" alt="sample of raw dataframe">
     </div>
     <hr>
 </div>
 
 <div class="mt-3">
     <ul>
-        <li class="text-info p-0">Number of lines : <span class="text-light">{{ raw_shape['nb_lines'] }} lines</span></li>
-        <li class="text-info p-0">Number of columns : <span class="text-light">{{ raw_shape['nb_cols'] }} columns</span></li>
-        <li class="text-info p-0">Number of duplicates : <span class="text-light">{{ raw_shape['nb_duplicates'] }} rows</span></li>
-        <li class="text-info p-0">Number of cells (no null) : <span class="text-light">{{ raw_shape['nb_no_null_cells'] }} cells
+        <li class="text-info p-0">Number of lines : <span class="text-light">8124 lines</span></li>
+        <li class="text-info p-0">Number of columns : <span class="text-light">23 columns</span></li>
+        <li class="text-info p-0">Number of duplicates : <span class="text-light">0 row</span></li>
+        <li class="text-info p-0">Number of cells (no null) : <span class="text-light">186852 cells
             (no null)</span></li>
-            <li class="text-info p-0">Number of cells (null) : <span class="text-light">{{ raw_shape['nb_null_cells'] }} cells
+            <li class="text-info p-0">Number of cells (null) : <span class="text-light">0 cells
                 (null)</span></li>
     </ul>
     <hr>
@@ -46,7 +46,7 @@
     <h3 class="text-info">CLEAN DATASET</h3>
     <p>Change initial features string into full string features and load Dataset from db</p>
     <div class="d-flex justify-content-center align-items-center">
-        <img class = "w-100 h-auto bg-white p-1 rounded shadow" src="{{ modified_df.source|safe }}" alt="sample of {{ modified_df.target|safe }}">
+        <img class = "w-100 h-auto bg-white p-1 rounded shadow" src="{{ url_for('static', filename='images/clean_df.png') }}" alt="sample of Modified Dataframe">
     </div>
     <hr>
 </div>
@@ -55,7 +55,7 @@
     <h3 class="text-info">Analyse clean columns </h3>
     <p>Show all columns with sample</p>
     <div class="d-flex justify-content-center align-items-center">
-        <img class = "w-100 h-auto bg-white p-1 rounded shadow" src="{{ df_sample.source|safe }}" alt="sample of {{ raw_df.target|safe }}">
+        <img class = "w-100 h-auto bg-white p-1 rounded shadow" src="{{ url_for('static', filename='images/sample_df.png') }}" alt="sample of Dataframe">
     </div>
     <hr>
 </div>
@@ -77,10 +77,10 @@
 </div>
 
 <div>
-    <h3 class="text-info">Analyse of Target : {{ target.target }} </h3>
+    <h3 class="text-info">Analyse of Target : "_CLASS" </h3>
     <p>View distribution of Target</p>
     <div class="text-center">
-        <img class="graph" src="{{ target.source|safe }}" alt="graphique de repartition">
+        <img class="graph" src="{{ url_for('static', filename='images/plot_target.png') }}" alt="graphique de repartition">
     </div>
     <hr>
 </div>
@@ -101,11 +101,74 @@
     
     <div class="d-flex justify-content-center align-items-center flex-wrap bg-white">
         
-        {% for feature in dist_features %}
+        
         <div>
-            <img class="graph" src="{{ feature.source|safe }}" alt="graphique de distribution de {{ feature.target }}">
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f01.png') }}" alt="graphique de distribution">
         </div>
-        {% endfor %}
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f02.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f03.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f04.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f05.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f06.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f07.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f08.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f09.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f10.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f11.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f12.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f13.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f14.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f15.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f16.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f17.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f18.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f19.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f20.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f21.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_f22.png') }}" alt="graphique de distribution">
+        </div>
+        
         <hr>
     </div>
     
@@ -134,11 +197,74 @@
     
     <div class="d-flex justify-content-center align-items-center flex-wrap bg-white">
         
-        {% for feature in dist_features_with_hue %}
+        
         <div>
-            <img class="graph" src="{{ feature.source|safe }}" alt="graphique de distribution de {{ feature.target }}">
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f01.png') }}" alt="graphique de distribution">
         </div>
-        {% endfor %}
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f02.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f03.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f04.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f05.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f06.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f07.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f08.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f09.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f10.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f11.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f12.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f13.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f14.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f15.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f16.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f17.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f18.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f19.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f20.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f21.png') }}" alt="graphique de distribution">
+        </div>
+        <div>
+            <img class="graph" src="{{ url_for('static', filename='images/plot_target_f22.png') }}" alt="graphique de distribution">
+        </div>
+       
         <hr>
     </div>
     <hr>

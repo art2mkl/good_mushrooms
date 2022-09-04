@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+{% block content_title %}<i class="bi bi-binoculars-fill"></i></i>&nbsp;EXPLORATION{% endblock %}
+
+{% block under_content %}
+
+<div class="mt-2">
+    <h3 class="text-info">LOAD DATASET FROM CSV SOURCE</h3>
+    <p>VIEW RAW DATASET</p>
+    <div class="d-flex justify-content-center align-items-center">
+        <img class = "w-100 h-auto bg-white p-1 rounded shadow" src="{{ raw_df.source|safe }}" alt="sample of {{ raw_df.target|safe }}">
+    </div>
+    <hr>
+</div>
+
+<div class="mt-3">
+    <ul>
+        <li class="text-info p-0">Number of lines : <span class="text-light">{{ raw_shape['nb_lines'] }} lines</span></li>
+        <li class="text-info p-0">Number of columns : <span class="text-light">{{ raw_shape['nb_cols'] }} columns</span></li>
+        <li class="text-info p-0">Number of duplicates : <span class="text-light">{{ raw_shape['nb_duplicates'] }} rows</span></li>
+        <li class="text-info p-0">Number of cells (no null) : <span class="text-light">{{ raw_shape['nb_no_null_cells'] }} cells
+            (no null)</span></li>
+            <li class="text-info p-0">Number of cells (null) : <span class="text-light">{{ raw_shape['nb_null_cells'] }} cells
+                (null)</span></li>
+    </ul>
+    <hr>
+</div>
+
+<div>
+    <h5 class="text-warning">COMMENTS :
+        <span class="text-light">
+            <ul>
+                <li>Original dataset sample is very clean</li> 
+                <li>DUPLICATES : No needs to drop duplicates</li>
+                <li>MISSING VALUES : No needs to delete or implement missing values</li>
+                <li>TYPE : Some features are in the form of categorical data represented with initials</li>
+                <li>CLEAN : Cleaning will just consist in transforming categories in the form of initials into whole words with analyse of Dataset's documentation</li>
+            </ul>
+        </span>
+    </h5>
+        <hr>
+</div>
+
+<div>
+    <h3 class="text-info">CLEAN DATASET</h3>
+    <p>Change initial features string into full string features and load Dataset from db</p>
+    <div class="d-flex justify-content-center align-items-center">
+        <img class = "w-100 h-auto bg-white p-1 rounded shadow" src="{{ modified_df.source|safe }}" alt="sample of {{ modified_df.target|safe }}">
+    </div>
+    <hr>
+</div>
+
+<div class="mt-2">
+    <h3 class="text-info">Analyse clean columns </h3>
+    <p>Show all columns with sample</p>
+    <div class="d-flex justify-content-center align-items-center">
+        <img class = "w-100 h-auto bg-white p-1 rounded shadow" src="{{ df_sample.source|safe }}" alt="sample of {{ raw_df.target|safe }}">
+    </div>
+    <hr>
+</div>
+
+<div>
+    <h5 class="text-warning">COMMENTS :
+        <span class="text-light">
+            <ul>
+                <li>All Dataset was cleaned with full string</li>
+                <li>Dataset contains just one categorical type : string object</li>
+                <li>There are no numerical feature except index</li>
+                <li>There are no outliers</li>
+                <li>Each feature has 2 to 12 distinct categories</li>
+                <li>It will be necessary to encode these categories when creating the model in the future</li>
+            </ul>
+        </span>
+    </h5>
+        <hr>
+</div>
+
+<div>
+    <h3 class="text-info">Analyse of Target : {{ target.target }} </h3>
+    <p>View distribution of Target</p>
+    <div class="text-center">
+        <img class="graph" src="{{ target.source|safe }}" alt="graphique de repartition">
+    </div>
+    <hr>
+</div>
+
+<div>
+    <h5 class="text-warning">COMMENTS :
+        <span class="text-light">
+            <ul>
+                <li>Target '_class' is distributed in a balanced way in the dataset. We observe a distribution close to 50%. It will not be necessary to proceed to stratifications in the development of the model.</li>
+            </ul>
+        </span>
+    </h5>
+        <hr>
+</div>
+    
+    <h3 class="text-info">FEATURE SELECTION : Simple Distribution </h3>
+    <p>View self distribution of features</p>
+    
+    <div class="d-flex justify-content-center align-items-center flex-wrap bg-white">
+        
+        {% for feature in dist_features %}
+        <div>
+            <img class="graph" src="{{ feature.source|safe }}" alt="graphique de distribution de {{ feature.target }}">
+        </div>
+        {% endfor %}
+        <hr>
+    </div>
+    
+    <hr>
+<h5 class="text-warning">COMMENTS :
+    <span class="text-light">
+        <ul>
+            <li>The values of the ordinal features do not show large differences in distribution, except for the features:</li>
+            <li><ul>
+                <li>_gill_attachment,</li>
+                <li>_gill_spacing,</li>
+                <li>_veil_color,</li>
+                <li>_veil_type,</li>
+                <li>_ring_number</li>
+            </ul>
+            <li>where one value accounts for more than 80% of the overall values.</li>
+            <li>These features are not expected to have a relevant effect in the target prediction calculation.</li>
+            <li>It is likely that these characteristics will be discarded when building a simplified model.</li>
+
+        </ul>
+    </span>
+</h5>
+
+<h3 class="text-info">FEATURE SELECTION : Distribution with Target</h3>
+    <p>View distribution of selected features with y</p>
+    
+    <div class="d-flex justify-content-center align-items-center flex-wrap bg-white">
+        
+        {% for feature in dist_features_with_hue %}
+        <div>
+            <img class="graph" src="{{ feature.source|safe }}" alt="graphique de distribution de {{ feature.target }}">
+        </div>
+        {% endfor %}
+        <hr>
+    </div>
+    <hr>
+<h5 class="text-warning">COMMENTS :
+    <span class="text-light">
+        <ul>
+            <li>Some features have a distribution of their values with a certain variance compared to target. <br>This features should be important for the model creation&nbsp;:</li>
+            <ul>
+                <li>_habitat,</li>
+                <li>_odor,</li>
+                <li>_population,</li>
+                <li>_bruises,</li>
+                <li>_cap_color</li>
+                <li>_cap_surface</li>
+                <li>_cap_shape</li>
+                <li>_gill_size</li>
+            </ul>
+            <li>The choice of features will also have to integrate&nbsp;:</li>
+            <ul>
+                <li>that the criteria of observations is easy for user</li>
+                <li>that the climatic conditions do not alter observations</li>
+                <li>the primary biological criteria are present</li>
+            </ul>
+            <li>For default model, the primary feature selection will include</li>
+            <ul>
+                <li>'_habitat'</li>
+                <li>'_gill_color'</li>
+                <li>'_population'</li>
+                <li>'_cap_shape'</li>
+                <li>'_odor'</li>
+            </ul>
+        </ul>
+    </span>
+</h5>
+
+
+
+{% endblock %}

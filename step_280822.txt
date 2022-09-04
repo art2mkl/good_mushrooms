@@ -11,15 +11,15 @@
 ||OK||recopier en html le notebook après avoir runner le notebook avec les criteres de style pandas (prévoir une sauvegarde)
 
 @app.main.index.html
-- mettre un icon timer
-- le gérer dans un js associé
+||OK||mettre un icon timer
+||OK||le gérer dans un js associé
 ||OK||- stylyser la premiere page en rajoutant l'objectif de l'app et la photo d'un champi avec la légende
-- creer une copie de la page exploration en html pur
-- corriger l'erreur d'affichage d'une image features importances sur heroku
+||OK||creer une copie de la page exploration en html pur
+||OK||corriger l'erreur d'affichage d'une image features importances sur heroku
 
-@test créer 2/3 tests
+||OK||@test créer 2/3 tests
 
-@azure mettre en prod et tester la production
+||OK||@azure mettre en prod et tester la production. done on heroku
 
 @réaliser le rapport à l'aide des modules attendus (intégrer notamment sommaire, objectif, etat de l'art, products backlog, planification, exploration, analyse, monitoring, création de l'app,  scoring)
 
