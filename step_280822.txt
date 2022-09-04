@@ -1,10 +1,10 @@
-@app.prediction.prediction.html
-input features + traduction
+||OK|| @app.prediction.prediction.html
+||OK|| input features + traduction
 
-@app.static.js.prediction.js
-- fonction asynchrone vers prediction
-- mettre un icon timer
-- gérer les apparitions de résultats
+||OK|| @app.static.js.prediction.js
+||OK|| - fonction asynchrone vers prediction
+||OK|| - mettre un icon timer
+||OK|| - gérer les apparitions de résultats
 
 
 @app.basic
@@ -14,7 +14,7 @@ recopier en html le notebook après avoir runner le notebook avec les criteres d
 - mettre un icon timer
 - le gérer dans un js associé
 - stylyser la premiere page en rajoutant l'objectif de l'app et la photo d'un champi avec la légende
-- creer une copie de la page exploration en html pur premiere page
+- creer une copie de la page exploration en html pur
 
 @test créer 2/3 tests
 
